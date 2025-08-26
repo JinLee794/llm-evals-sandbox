@@ -1,0 +1,6 @@
+llm-evals-workshop/
+__pycache__/
+**/data/*.json
+**/data/*.jsonl
+.env
+*.jsonl
