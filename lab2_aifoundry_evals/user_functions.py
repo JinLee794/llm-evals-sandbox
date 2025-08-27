@@ -6,56 +6,7 @@
 
 import json
 import datetime
-import os
-from pathlib import Path
 from typing import Any, Callable, Set, Dict, List, Optional
-
-# Attempt to load environment variables from a .env file at the repository root
-# If python-dotenv is available, use it; otherwise fall back to os.environ.
-try:
-    from dotenv import load_dotenv  # type: ignore
-except Exception:  # pragma: no cover - optional dependency
-    load_dotenv = None
-
-# Resolve repository root relative to this file. user_functions.py is in e2e_evals/.
-_PROJECT_ROOT = Path(__file__).resolve().parents[1]
-_DOTENV_PATH = _PROJECT_ROOT / ".env"
-
-if load_dotenv:
-    # load variables from the .env file if present
-    try:
-        load_dotenv(dotenv_path=_DOTENV_PATH)
-    except Exception:
-        # ignore dotenv errors and continue using existing environment
-        pass
-
-# Expose commonly used configuration values (read from environment/.env)
-CONFIG: Dict[str, Optional[str]] = {
-    "AZURE_OPENAI_ENDPOINT": os.environ.get("AZURE_OPENAI_ENDPOINT"),
-    "AZURE_OPENAI_API_KEY": os.environ.get("AZURE_OPENAI_API_KEY"),
-    "AZURE_AI_FOUNDRY_PROJECT_NAME": os.environ.get("AZURE_AI_FOUNDRY_PROJECT_NAME"),
-    "AZURE_AI_FOUNDRY_ENDPOINT": os.environ.get("AZURE_AI_FOUNDRY_ENDPOINT"),
-    "AZURE_SUBSCRIPTION_ID": os.environ.get("AZURE_SUBSCRIPTION_ID"),
-    "AZURE_RESOURCE_GROUP_NAME": os.environ.get("AZURE_RESOURCE_GROUP_NAME"),
-    "AZURE_OPENAI_DEPLOYMENT_NAME": os.environ.get("AZURE_OPENAI_DEPLOYMENT_NAME"),
-    "AZURE_OPENAI_API_VERSION": os.environ.get("AZURE_OPENAI_API_VERSION"),
-    "AZURE_COGNITIVE_SEARCH_ENDPOINT": os.environ.get("AZURE_COGNITIVE_SEARCH_ENDPOINT"),
-    "AZURE_COGNITIVE_SEARCH_KEY": os.environ.get("AZURE_COGNITIVE_SEARCH_KEY"),
-}
-
-
-def get_config(key: str, default: Optional[str] = None) -> Optional[str]:
-    """Get a configuration value from the loaded CONFIG or environment.
-
-    This helper first checks the `CONFIG` dict (which was populated from the
-    environment/.env at module import time) and falls back to os.environ if
-    needed.
-
-    :param key: The environment variable name.
-    :param default: Value to return if the key is not set.
-    :return: The configuration value or the provided default.
-    """
-    return CONFIG.get(key) or os.environ.get(key, default)
 
 # These are the user-defined functions that can be called by the agent.
 
