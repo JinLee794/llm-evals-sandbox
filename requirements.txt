@@ -1,9 +1,9 @@
 # Core Azure AI packages
-azure-ai-evaluation>=1.0.1
-azure-ai-projects
-openai
+azure-ai-evaluation==1.10.0
+azure-ai-projects==1.1.0b3
 azure-ai-agents>=1.1.0
 azure-identity>=1.17.1
+openai
 
 # Data processing and analysis
 pandas>=2.0.0
