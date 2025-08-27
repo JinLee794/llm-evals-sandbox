@@ -15,24 +15,6 @@ This hands-on workshop series takes you through a progressive journey of LLM eva
 - Basic Python programming knowledge
 - Azure subscription with access to create resources
 - Familiarity with Jupyter notebooks
-
-# LLM Evaluations Workshop
-**From Fundamentals to Production-Ready Evaluation Frameworks**
-
-## 🎯 Overview
-
-This hands-on workshop series takes you through a progressive journey of LLM evaluation techniques, starting from basic concepts and building up to sophisticated, production-ready evaluation frameworks like the ones used in enterprise solutions such as the AutoAuth Solution Accelerator.
-
-### Target Audience
-- **Technical professionals** with basic programming experience
-- **Developers** new to AI/LLM development
-- **Solution architects** exploring LLM integration patterns
-- **Data scientists** looking to implement systematic LLM evaluation
-
-### Prerequisites
-- Basic Python programming knowledge
-- Azure subscription with access to create resources
-- Familiarity with Jupyter notebooks
 - Understanding of basic software development concepts
 
 ---
@@ -249,12 +231,8 @@ llm-evaluations-workshop/
 │
 ├── lab3_redteaming/
 │   ├── AI_RedTeaming.ipynb
-│   ├── AI_Red_Teaming_Agent_Part2.ipynb
 │   ├── red_team_output.json
 │   └── redteam.log
-│
-├── llm-evals-workshop/            # virtualenv and helper binaries (if present locally)
-│   └── ...
 │
 ├── shared_utils/
 │   ├── azure_clients.py
