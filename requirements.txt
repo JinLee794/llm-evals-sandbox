@@ -3,7 +3,7 @@ azure-ai-evaluation==1.10.0
 azure-ai-projects==1.1.0b3
 azure-ai-agents>=1.1.0
 azure-identity>=1.17.1
-openai
+openai>=1.105.0
 
 # Data processing and analysis
 pandas>=2.0.0
